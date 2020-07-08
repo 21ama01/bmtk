@@ -52,6 +52,13 @@ class SonataBaseEdge(object):
         return self._edge['distance_range']
 
     @property
+    def is_gap_junction(self):
+        try:
+            return self._edge['is_gap_junction']
+        except:
+            return False
+
+    @property
     def edge_type_id(self):
         return self._edge.edge_type_id
 
