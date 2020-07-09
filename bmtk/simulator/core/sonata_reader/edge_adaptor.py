@@ -100,7 +100,7 @@ class EdgeAdaptor(object):
 
         for et_id in edge_type_ids:
             edge_type = edge_types_table[et_id]
-            if 'dynamics_params' in edge_types_table.columns:
+            if 'dynamics_params' in edge_types_table.columns and edge_type['dynamics_params'] != None:
                 dynamics_params = edge_type['dynamics_params']
                 params_dir = network.get_component('synaptic_models_dir')
 
