@@ -191,7 +191,7 @@ class SimNetwork(object):
 
             with h5py.File(path, 'r') as f:
                 for key in ['source_ids', 'target_ids', 'src_gap_ids', 'trg_gap_ids']:
-                    self._gap_juncs[network][key] = f[key].value
+                    self._gap_juncs[network][key] = f[key][()]
 
     def build(self):
         self.build_nodes()
