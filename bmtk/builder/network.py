@@ -134,8 +134,10 @@ class Network (object):
         self._add_node_type(node_properties)
         self._node_sets.append(NodeSet(N, node_params, node_properties))
 
-    def add_gap_junctions(self, source=None, target=None, iterator='one_to_one', resistance=1, target_sections=None,
+    def add_gap_junctions(self, source=None, target=None, iterator='one_to_one', resistance=1, target_sections=['somatic'],
                             connection_rule=1, connection_params=None):
+        if target_sections != None:
+            print("Warning: For gap junctions, the target sections variable is used for both the source and target sections.")
         return self.add_edges(source=source, target=target, iterator=iterator, distance_range=[0.0,300.0],
                     syn_weight=resistance, is_gap_junction=True, target_sections=target_sections,
                     connection_rule=connection_rule, connection_params=connection_params)
